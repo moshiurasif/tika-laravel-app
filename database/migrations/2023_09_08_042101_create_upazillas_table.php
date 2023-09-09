@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('upazillas', function (Blueprint $table) {
             $table->id();
-            $table->integer('district_id');
             $table->string('name');
+            $table->unsignedBigInteger('district_id');
+            $table->foreign('district_id')->references('id')->on('districts');
             $table->timestamps();
         });
     }

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('people', function (Blueprint $table) {
+        Schema::create('vaccination_centers', function (Blueprint $table) {
             $table->id();
-            $table->string('id_no');
-            $table->dateTime('dob');
-            $table->string('office');
-            $table->unsignedBigInteger('registered')->default(0);
+            $table->string('name');
+            $table->unsignedBigInteger('upazilla_id');
+            $table->unsignedBigInteger('vaccine_id');
+            $table->unsignedBigInteger('available');
+            $table->foreign('upazilla_id')->references('id')->on('upazillas');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('vaccination_centers');
     }
 };
