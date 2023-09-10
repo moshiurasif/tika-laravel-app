@@ -12,7 +12,8 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        //
+        $districts = District::paginate();
+        return view('districts.index', compact('districts'));
     }
 
     /**

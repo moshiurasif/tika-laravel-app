@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('division_id');
+            $table->unsignedBigInteger('enabled')->default(1);
             $table->foreign('division_id')->references('id')->on('divisions');
             $table->timestamps();
         });

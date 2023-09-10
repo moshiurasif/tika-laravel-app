@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('district_id');
+            $table->unsignedBigInteger('enabled')->default(1);
             $table->foreign('district_id')->references('id')->on('districts');
             $table->timestamps();
         });
