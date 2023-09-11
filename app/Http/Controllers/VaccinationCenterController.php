@@ -12,7 +12,8 @@ class VaccinationCenterController extends Controller
      */
     public function index()
     {
-        //
+        $vaccinationCenters = VaccinationCenter::paginate();
+        return view("vaccinationCenters.index", compact("vaccinationCenters"));
     }
 
     /**
@@ -44,7 +45,7 @@ class VaccinationCenterController extends Controller
      */
     public function edit(VaccinationCenter $vaccinationCenter)
     {
-        //
+        return view("vaccinationCenters.edit", ["vaccinationCenter" => $vaccinationCenter]);
     }
 
     /**
@@ -52,7 +53,19 @@ class VaccinationCenterController extends Controller
      */
     public function update(Request $request, VaccinationCenter $vaccinationCenter)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "upazilla_id" => "required",
+            "vaccine_id" => "required",
+        ]);
+        $vaccinationCenter->name = $request->name;
+        $vaccinationCenter->upazilla_id = $request->upazilla_id;
+        $vaccinationCenter->vaccine_id = $request->vaccine_id;
+        $vaccinationCenter->save();
+
+        return redirect(route('vaccinationCenters.index'))->with([
+            "message" => $vaccinationCenter->name . " is updated"
+        ]);
     }
 
     /**

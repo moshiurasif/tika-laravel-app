@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Category') }}
+            {{ __('Vaccine') }}
         </h2>
     </x-slot>
 
@@ -18,15 +18,15 @@
                 <table class="w-full border-r border-b">
                     <tr>
                         <th class="border-l border-t px-2 py-1 text-left px-4">Name</th>
-                        <th class="border-l border-t px-2 py-1 text-center">Minimum Age</th>
+                       
                         <th class="border-l border-t px-2 py-1 text-center">Actions</th>
                     </tr>
-                   @foreach ($categories as $category)
+                    
+                   @foreach ($vaccines as $vaccine)
                    <tr>
-                    <td class="border-l border-t px-2 py-1 text-left px-4">{{$category->name}}</td>
-                    <td class="border-l border-t px-2 py-1 text-center">{{$category->min_age}}</td>
+                    <td class="border-l border-t px-2 py-1 text-left px-4">{{$vaccine->name}}</td>
                     <td class="border-l border-t px-2 py-1 text-center">
-                        <a href="{{route('categories.edit', $category->id)}}">Edit</a>
+                        <a href="{{route('vaccines.edit', $vaccine->id)}}">Edit</a>
                         <a href="">Delete</a>
                     </td>
                 </tr>    

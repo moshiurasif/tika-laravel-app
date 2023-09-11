@@ -21,6 +21,12 @@
                     <x-nav-link :href="route('districts.index')" :active="request()->routeIs('districts.index')">
                         {{ __('District') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('vaccines.index')" :active="request()->routeIs('vaccines.index')">
+                        {{ __('Vaccines') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('vaccinationCenters.index')" :active="request()->routeIs('vaccinationCenters.index')">
+                        {{ __('VaccinationCenters') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                         {{ __('Category') }}
                     </x-nav-link>

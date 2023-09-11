@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Category') }}
+            {{ __('Vaccination Center') }}
         </h2>
     </x-slot>
 
@@ -18,15 +18,19 @@
                 <table class="w-full border-r border-b">
                     <tr>
                         <th class="border-l border-t px-2 py-1 text-left px-4">Name</th>
-                        <th class="border-l border-t px-2 py-1 text-center">Minimum Age</th>
+                        <th class="border-l border-t px-2 py-1 text-center">Upazilla ID</th>
+                        <th class="border-l border-t px-2 py-1 text-center">Vaccine ID</th>
+                        <th class="border-l border-t px-2 py-1 text-center">Available</th>
                         <th class="border-l border-t px-2 py-1 text-center">Actions</th>
                     </tr>
-                   @foreach ($categories as $category)
+                   @foreach ($vaccinationCenters as $vaccinationCenter)
                    <tr>
-                    <td class="border-l border-t px-2 py-1 text-left px-4">{{$category->name}}</td>
-                    <td class="border-l border-t px-2 py-1 text-center">{{$category->min_age}}</td>
+                    <td class="border-l border-t px-2 py-1 text-left px-4">{{$vaccinationCenter->name}}</td>
+                    <td class="border-l border-t px-2 py-1 text-center">{{$vaccinationCenter->upazilla_id}}</td>
+                    <td class="border-l border-t px-2 py-1 text-center">{{$vaccinationCenter->vaccine_id}}</td>
+                    <td class="border-l border-t px-2 py-1 text-center">{{$vaccinationCenter->available}}</td>
                     <td class="border-l border-t px-2 py-1 text-center">
-                        <a href="{{route('categories.edit', $category->id)}}">Edit</a>
+                        <a href="{{route('vaccinationCenters.edit', $vaccinationCenter->id)}}">Edit</a>
                         <a href="">Delete</a>
                     </td>
                 </tr>    
