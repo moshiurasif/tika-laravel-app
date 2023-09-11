@@ -23,4 +23,4 @@ Route::get("/", function () {
     return "Ok";
 });
 
-Route::get("/verify", [VerificationController::class, 'verify']);
+Route::post("/verify", [VerificationController::class, 'verify']);
