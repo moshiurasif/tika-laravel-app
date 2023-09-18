@@ -29,6 +29,7 @@ class CategoryController extends Controller
     }
     public function districts(Request $request)
     {
+
         $districts = District::where('enabled', 1)->where('division_id', $request->division_id)->get();
         return response()->json($districts);
     }
