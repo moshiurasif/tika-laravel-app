@@ -12,7 +12,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        //
+        $registeredUser = Registration::paginate();
+        return view('registrations.index', compact('registeredUser'));
     }
 
     /**

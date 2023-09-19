@@ -30,3 +30,4 @@ Route::get('/divisions', [CategoryController::class, 'divisions']);
 Route::get('/districts', [CategoryController::class, 'districts']);
 Route::get('/upazillas', [CategoryController::class, 'upazillas']);
 Route::get('/vaccination-centers', [CategoryController::class, 'vaccinationCenters']);
+Route::post('/register', [CategoryController::class, 'register']);

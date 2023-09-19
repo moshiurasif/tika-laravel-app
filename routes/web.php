@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UpazillaController;
 use App\Http\Controllers\VaccinationCenterController;
 use App\Http\Controllers\VaccineController;
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/upazillas', UpazillaController::class);
     Route::resource("/vaccines", VaccineController::class);
     Route::resource("/vaccinationCenters", VaccinationCenterController::class);
+    Route::resource("/registration", RegistrationController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

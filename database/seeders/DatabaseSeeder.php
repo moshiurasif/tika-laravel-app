@@ -86,6 +86,6 @@ class DatabaseSeeder extends Seeder
             $vaccineModel->save();
         }
 
-        VaccinationCenter::factory(30)->create();
+        VaccinationCenter::factory(200)->create();
     }
 }

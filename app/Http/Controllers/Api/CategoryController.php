@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\District;
 use App\Models\Division;
+use App\Models\Registration;
 use App\Models\Upazilla;
+use App\Models\User;
 use App\Models\VaccinationCenter;
 use Illuminate\Http\Request;
 
@@ -45,33 +47,22 @@ class CategoryController extends Controller
     }
 
 
-    // public function phoneVerify(Request $request)
-    // {
-    //     $sid = getenv("TWILIO_ACCOUNT_SID");
-    //     $token = getenv("TWILIO_AUTH_TOKEN");
-    //     $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
-    //     $twilio = new Client($sid, $token);
+    public function register(Request $request)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'dob' => 'required|date',
+            'id_no' => 'required|string|max:255',
+            'phone_no' => 'required|string|max:255',
+            'center_id' => 'required|integer',
+            'diabetes' => 'required|boolean',
+        ]);
 
-    //     $verification = $twilio->verify->v2->services($twilio_verify_sid)
-    //         ->verifications
-    //         ->create('+88' . $request->phone, "sms");
+        // Create a new registration record using Eloquent ORM
+        $registration = Registration::create($validatedData);
 
-    //     return response()->json($verification->status);
-    // }
-    // public function phoneVerifyCode(Request $request)
-    // {
-    //     $sid = getenv("TWILIO_ACCOUNT_SID");
-    //     $token = getenv("TWILIO_AUTH_TOKEN");
-    //     $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
-    //     $twilio = new Client($sid, $token);
-
-    //     $verification = $twilio->verify->v2->services($twilio_verify_sid)
-    //         ->verificationChecks
-    //         ->create(
-    //             $request->verify_code, // code
-    //             ["to" => "+88" . $request->phone]
-    //         );
-
-    //     return response()->json($verification->status);
-    // }
+        // You can return a response here if needed
+        return response()->json(['message' => 'Registration successful', 'data' => $registration], 201);
+    }
 }

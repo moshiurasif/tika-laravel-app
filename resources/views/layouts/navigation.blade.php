@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('vaccines.index')" :active="request()->routeIs('vaccines.index')">
                         {{ __('Vaccines') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.index')">
+                        {{ __('Registration') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('vaccinationCenters.index')" :active="request()->routeIs('vaccinationCenters.index')">
                         {{ __('VaccinationCenters') }}
                     </x-nav-link>

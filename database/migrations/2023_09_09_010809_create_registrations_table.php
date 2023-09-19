@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('id_no');
             $table->string('phone_no');
             $table->unsignedBigInteger('center_id');
-            $table->dateTime('upcoming_date');
-            $table->dateTime('v1_date');
-            $table->dateTime('v2_date');
-            $table->string('unique_id');
+            $table->dateTime('upcoming_date')->nullable();
+            $table->dateTime('v1_date')->nullable();
+            $table->dateTime('v2_date')->nullable();
+            $table->string('unique_id')->nullable();
             $table->unsignedBigInteger('diabetes');
             $table->foreign('center_id')->references('id')->on('vaccination_centers');
             $table->timestamps();

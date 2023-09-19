@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('upazilla_id');
             $table->unsignedBigInteger('vaccine_id');
             $table->unsignedBigInteger('available');
+            $table->unsignedBigInteger('enabled')->default(1);
             $table->foreign('upazilla_id')->references('id')->on('upazillas');
             $table->timestamps();
         });
